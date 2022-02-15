@@ -1,10 +1,10 @@
 {
-    "name": "ts-helpers",
+    "name": "ts-help",
     "version": "0.0.1",
     "description": "Typescript cheat sheet",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
-    "repository": "git@github.com:Hurobaki/ts-helpers.git",
+    "repository": "git@github.com:Hurobaki/ts-help.git",
     "author": {
         "name": "Théo Herveux",
         "url": "https://github.com/Hurobaki"
@@ -20,7 +20,10 @@
         "Typescript",
         "helpers",
         "Maybe",
-        "NonEmptyArray"
+        "NonEmptyArray",
+        "typescript",
+        "non empty array",
+        "maybe"
     ],
     "files": [
         "lib/**/*"

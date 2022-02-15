@@ -1,5 +1,5 @@
 import { Maybe, Nothing, Some } from './MaybeHelpers';
-import { NonEmptyArray, NonEmptyArrayHelpers } from './NonEmptyArrayHelpers';
+//import { NonEmptyArray, NonEmptyArrayHelpers } from './NonEmptyArrayHelpers';
 
 export enum SORT_TYPE {
     ASC,
@@ -60,24 +60,24 @@ const isEmpty = <T>(array: T[]): boolean => {
     return !(array.length > 0);
 };
 
-const filter = <T>(array: T[], predicate: (item: T) => boolean): Maybe<NonEmptyArray<T>> => {
-    const filteredArray = array.filter(predicate);
-    return NonEmptyArrayHelpers.fromArray(filteredArray);
-};
-
-const filterMap = <T, U>(array: T[], predicate: (item: T) => Maybe<U>): Maybe<NonEmptyArray<U>> =>
-    array.reduce<Maybe<NonEmptyArray<U>>>((acc, curr) => {
-        const maybeMappedItem = predicate(curr);
-        return acc.isSome
-            ? Some(maybeMappedItem.isSome ? acc.value.push(maybeMappedItem.value) : acc.value)
-            : maybeMappedItem.isSome
-            ? Some(NonEmptyArrayHelpers.build(maybeMappedItem.value, []))
-            : Nothing;
-    }, Nothing);
+// const filter = <T>(array: T[], predicate: (item: T) => boolean): Maybe<NonEmptyArray<T>> => {
+//     const filteredArray = array.filter(predicate);
+//     return NonEmptyArrayHelpers.fromArray(filteredArray);
+// };
+//
+// const filterMap = <T, U>(array: T[], predicate: (item: T) => Maybe<U>): Maybe<NonEmptyArray<U>> =>
+//     array.reduce<Maybe<NonEmptyArray<U>>>((acc, curr) => {
+//         const maybeMappedItem = predicate(curr);
+//         return acc.isSome
+//             ? Some(maybeMappedItem.isSome ? acc.value.push(maybeMappedItem.value) : acc.value)
+//             : maybeMappedItem.isSome
+//             ? Some(NonEmptyArrayHelpers.build(maybeMappedItem.value, []))
+//             : Nothing;
+//     }, Nothing);
 
 export const ArrayHelpers = {
-    filter,
-    filterMap,
+    // filter,
+    // filterMap,
     isEmpty,
     find,
     dictionaryFromArrayOfObjects,

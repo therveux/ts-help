@@ -29,7 +29,7 @@
         "lib/**/*"
     ],
     "scripts": {
-        "test": "npx jest --config jestconfig.json",
+        "test": "npx jest",
         "build": "rm -rf ./lib && npx tsc",
         "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
         "lint": "npx eslint . --ext .ts",
@@ -57,5 +57,19 @@
         "printWidth": 120,
         "trailingComma": "none",
         "arrowParens": "avoid"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.(t|j)sx?$": "ts-jest"
+        },
+        "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ]
     }
 }

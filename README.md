@@ -29,8 +29,9 @@ Some custom types have been added to the library. You can add them to your `tsco
 
 ```json
 {
-  //...
-  "typeRoots": ["./node_modules/@types", "./node_modules/ts-help/@types"]
+  "compilerOptions": {
+    "typeRoots": ["./node_modules/@types", "./node_modules/ts-help/@types"]
+  }
 }
 ```
 

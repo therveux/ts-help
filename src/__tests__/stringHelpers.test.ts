@@ -2,137 +2,137 @@ import { StringHelpers } from '../helpers/StringHelpers';
 
 /* ############### Exploitable data ############### */
 
-const emptyStringWihoutSpace: string = '';
+const emptyStringWihoutSpace = '';
 
 /* ############### Test 1 ############### */
 
-const inputTest1: string = emptyStringWihoutSpace;
+const inputTest1 = emptyStringWihoutSpace;
 
 const expectedTest1 = true;
 
 /* ############### Test 2 ############### */
 
-const inputTest2: string = 'string';
+const inputTest2 = 'string';
 
 const expectedTest2 = false;
 
 /* ############### Test 3 ############### */
 
-const inputTest3: string = '  ';
+const inputTest3 = '  ';
 
 const expectedTest3 = false;
 
 /* ############### Test 4 ############### */
 
-const inputTest4: string = 'string';
+const inputTest4 = 'string';
 
 const expectedTest4 = 'String';
 
 /* ############### Test 5 ############### */
 
-const inputTest5: string = 'string string';
+const inputTest5 = 'string string';
 
 const expectedTest5 = 'String String';
 
 /* ############### Test 6 ############### */
 
-const inputTest6: string = 'String     String';
+const inputTest6 = 'String     String';
 
 const expectedTest6 = 'StringString';
 
 /* ############### Test 7 ############### */
 
-const inputTest7: string = 'string';
+const inputTest7 = 'string';
 
 const expectedTest7 = false;
 
 /* ############### Test 8 ############### */
 
-const inputTest8: string = '  ';
+const inputTest8 = '  ';
 
 const expectedTest8 = true;
 
 /* ############### Test 9 ############### */
 
-const inputTest9: string = emptyStringWihoutSpace;
+const inputTest9 = emptyStringWihoutSpace;
 
 const expectedTest9 = emptyStringWihoutSpace;
 
 /* ############### Test 10 ############### */
 
-const inputTest10: string = 'String string' || 'string String';
+const inputTest10 = 'String string' || 'string String';
 
 const expectedTest10 = 'String String';
 
 /* ############### Test 11 ############### */
 
-const inputTest11: string = 'sTring';
+const inputTest11 = 'sTring';
 
 const expectedTest11 = 'String';
 
 /* ############### Test 12 ############### */
 
-const inputTest12: string = emptyStringWihoutSpace;
+const inputTest12 = emptyStringWihoutSpace;
 
 const expectedTest12 = emptyStringWihoutSpace;
 
 /* ############### Test 13 ############### */
 
-const inputTest13: string = 'sTring sTring';
+const inputTest13 = 'sTring sTring';
 
 const expectedTest13 = 'String String';
 
 /* ############### Test 14 ############### */
 
-const inputTest14: string = 'string string string';
+const inputTest14 = 'string string string';
 
 const expectedTest14 = 'String String String';
 
 /* ############### Test 15 ############### */
 
-const inputTest15: string = ' string string';
+const inputTest15 = ' string string';
 
 const expectedTest15 = ' String String';
 
 /* ############### Test 16 ############### */
 
-const inputTest16: string = '        string        ';
+const inputTest16 = '        string        ';
 
 const expectedTest16 = 'string';
 
 /* ############### Test 17 ############### */
 
-const inputTest17: string = 's t r i n g';
+const inputTest17 = 's t r i n g';
 
 const expectedTest17 = 'string';
 
 /* ############### Test 18 ############### */
 
-const inputTest18: string = 'string string string string string';
+const inputTest18 = 'string string string string string';
 
 const expectedTest18 = 'stringstringstringstringstring';
 
 /* ############### Test 19 ############### */
 
-const inputTest19: string = '    string    ';
+const inputTest19 = '    string    ';
 
 const expectedTest19 = false;
 
 /* ############### Test 20 ############### */
 
-const inputTest20: string = emptyStringWihoutSpace;
+const inputTest20 = emptyStringWihoutSpace;
 
 const expectedTest20 = true;
 
 /* ############### Test 21 ############### */
 
-const inputTest21: string = emptyStringWihoutSpace;
+const inputTest21 = emptyStringWihoutSpace;
 
 const expectedTest21 = '';
 
 /* ############### Test 22 ############### */
 
-const inputTest22: string = ' ';
+const inputTest22 = ' ';
 
 const expectedTest22 = '';
 

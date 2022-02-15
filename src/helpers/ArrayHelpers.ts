@@ -35,7 +35,7 @@ const chunk = <T>(array: T[], size: number): Maybe<T[][]> => {
     }
 };
 
-const getValue = <T>(array: T[], index: number): Maybe<T> => (!!array[index] ? Some(array[index]) : Nothing);
+const getValue = <T>(array: T[], index: number): Maybe<T> => (array[index] ? Some(array[index]) : Nothing);
 
 const flatten = <T>(array: T[][]): T[] => array.reduce((acc, curr) => [...acc, ...curr], []);
 

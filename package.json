@@ -4,7 +4,10 @@
     "description": "Typescript cheat sheet",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
-    "repository": "git@github.com:Hurobaki/ts-help.git",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Hurobaki/ts-help.git"
+    },
     "author": {
         "name": "Théo Herveux",
         "url": "https://github.com/Hurobaki"
@@ -37,7 +40,7 @@
         "prepack": "yarn build",
         "prepublishOnly": "yarn test && yarn lint",
         "preversion": "yarn lint",
-        "postversion": "git push --tags && yarn publish . --tag $npm_package_version && git push && echo \"Successfully released version $npm_package_version!\"",
+        "postversion": "git push --tags && yarn publish . --tag $npm_package_version && git push origin $(git branch --show-current) && echo \"Successfully released version $npm_package_version!\"",
         "patch": "yarn version --patch",
         "minor": "yarn version --minor",
         "major": "yarn version --major"

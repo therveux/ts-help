@@ -1,6 +1,6 @@
 {
     "name": "ts-help",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Typescript cheat sheet",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",

@@ -2,11 +2,11 @@ import { StringHelpers } from '../helpers/StringHelpers';
 
 /* ############### Exploitable data ############### */
 
-const emptyStringWihoutSpace = '';
+const emptyStringWithoutSpace = '';
 
 /* ############### Test 1 ############### */
 
-const inputTest1 = emptyStringWihoutSpace;
+const inputTest1 = emptyStringWithoutSpace;
 
 const expectedTest1 = true;
 
@@ -54,9 +54,9 @@ const expectedTest8 = true;
 
 /* ############### Test 9 ############### */
 
-const inputTest9 = emptyStringWihoutSpace;
+const inputTest9 = emptyStringWithoutSpace;
 
-const expectedTest9 = emptyStringWihoutSpace;
+const expectedTest9 = emptyStringWithoutSpace;
 
 /* ############### Test 10 ############### */
 
@@ -72,9 +72,9 @@ const expectedTest11 = 'String';
 
 /* ############### Test 12 ############### */
 
-const inputTest12 = emptyStringWihoutSpace;
+const inputTest12 = emptyStringWithoutSpace;
 
-const expectedTest12 = emptyStringWihoutSpace;
+const expectedTest12 = emptyStringWithoutSpace;
 
 /* ############### Test 13 ############### */
 
@@ -120,13 +120,13 @@ const expectedTest19 = false;
 
 /* ############### Test 20 ############### */
 
-const inputTest20 = emptyStringWihoutSpace;
+const inputTest20 = emptyStringWithoutSpace;
 
 const expectedTest20 = true;
 
 /* ############### Test 21 ############### */
 
-const inputTest21 = emptyStringWihoutSpace;
+const inputTest21 = emptyStringWithoutSpace;
 
 const expectedTest21 = '';
 

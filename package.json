@@ -2,7 +2,8 @@
     "name": "ts-helpers",
     "version": "0.0.1",
     "description": "Typescript cheat sheet",
-    "main": "index.js",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
     "repository": "git@github.com:Hurobaki/ts-helpers.git",
     "author": {
         "name": "Théo Herveux",
@@ -11,14 +12,36 @@
     "contributors": [
         {
             "name": "Martin Prieur",
-            "url": ""
+            "url": "https://github.com/GirouetteCacahuette"
         }
     ],
     "license": "MIT",
+    "keywords": [
+        "Typescript",
+        "helpers",
+        "Maybe",
+        "NonEmptyArray"
+    ],
+    "files": [
+        "lib/**/*"
+    ],
     "scripts": {
-        "build": "npx tsc"
+        "test": "npx jest --config jestconfig.json",
+        "build": "rm -rf ./lib && npx tsc",
+        "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+        "lint": "npx eslint . --ext .ts",
+        "watch": "npx tsc -w",
+        "prepare": "yarn build",
+        "prepublishOnly": "yarn test && yarn lint",
+        "preversion": "yarn lint"
     },
     "devDependencies": {
+        "@types/jest": "27.4.0",
+        "@typescript-eslint/eslint-plugin": "5.12.0",
+        "@typescript-eslint/parser": "5.12.0",
+        "eslint": "8.9.0",
+        "jest": "27.5.1",
+        "ts-jest": "27.1.3",
         "typescript": "4.5.5"
     },
     "prettier": {

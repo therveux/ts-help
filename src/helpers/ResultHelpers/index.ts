@@ -1,8 +1,8 @@
 export type Result<T> = OkType<T> | ErrType;
 
 type OkType<T> = {
-    value: T;
     isOk: true;
+    value: T;
 };
 
 export const Ok = <T>(value: T): OkType<T> => {
@@ -64,9 +64,9 @@ const andThenAsync = async <T, U>(result: Result<T>, fn: (value: T) => Promise<R
     }
 };
 
-const executeIfErr = <T>(result: Result<T>, fn: () => void) => {
+const executeIfErr = <T>(result: Result<T>, fn: (error: string) => void) => {
     if (!result.isOk) {
-        fn();
+        fn(result.error);
     }
 };
 

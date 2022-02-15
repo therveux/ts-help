@@ -6,7 +6,7 @@
  * When called, a warner is given a string to help you understand what is it that you have to do to make sure you did
  * everything right.
  */
-export interface CompilerWarner<K> {
+export interface CompilerWarner {
     warnCompiler<T>(helpMessage: string, returnValue: T | (() => T)): T;
 }
 
@@ -80,12 +80,16 @@ export interface CompilerWarner<K> {
  * CompilerWarner to remove the TS error.
  */
 
-export const buildCompilerWarner = <K>(watcher: (typeToWatch: K) => K): CompilerWarner<K> => ({
-    warnCompiler<T>(helpMessage: string, returnValue: T | (() => T)): T {
-        if (returnValue instanceof Function) {
-            return returnValue();
-        } else {
-            return returnValue;
+export const buildCompilerWarner = <K = void>(
+    _: (typeToWatch: K) => K extends void ? 'Must provide type' : K
+): CompilerWarner => {
+    return {
+        warnCompiler<T>(_: string, returnValue: T | (() => T)): T {
+            if (returnValue instanceof Function) {
+                return returnValue();
+            } else {
+                return returnValue;
+            }
         }
-    }
-});
+    };
+};

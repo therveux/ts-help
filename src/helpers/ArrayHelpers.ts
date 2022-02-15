@@ -22,7 +22,7 @@ const sortObjectsByValue = <K extends keyof T, T extends Record<K, string | numb
 
 const chunk = <T>(array: T[], size: number): Maybe<T[][]> => {
     if (size <= 0) {
-        return Nothing();
+        return Nothing;
     } else {
         const numberOfArrays = Math.ceil(array.length / size);
         const chunkedArray: T[][] = [];
@@ -35,7 +35,7 @@ const chunk = <T>(array: T[], size: number): Maybe<T[][]> => {
     }
 };
 
-const getValue = <T>(array: T[], index: number): Maybe<T> => (!!array[index] ? Some(array[index]) : Nothing());
+const getValue = <T>(array: T[], index: number): Maybe<T> => (!!array[index] ? Some(array[index]) : Nothing);
 
 const flatten = <T>(array: T[][]): T[] => array.reduce((acc, curr) => [...acc, ...curr], []);
 
@@ -53,7 +53,7 @@ const dictionaryFromArrayOfObjects = <T extends Record<K, string | number>, K ex
 
 const find = <T>(array: T[], predicate: (item: T) => boolean): Maybe<T> => {
     const foundItem = array.find(predicate);
-    return foundItem ? Some(foundItem) : Nothing();
+    return foundItem ? Some(foundItem) : Nothing;
 };
 
 const isEmpty = <T>(array: T[]): boolean => {
@@ -72,8 +72,8 @@ const filterMap = <T, U>(array: T[], predicate: (item: T) => Maybe<U>): Maybe<No
             ? Some(maybeMappedItem.isSome ? acc.value.push(maybeMappedItem.value) : acc.value)
             : maybeMappedItem.isSome
             ? Some(NonEmptyArrayHelpers.build(maybeMappedItem.value, []))
-            : Nothing();
-    }, Nothing());
+            : Nothing;
+    }, Nothing);
 
 export const ArrayHelpers = {
     filter,

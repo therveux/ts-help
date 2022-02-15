@@ -1,6 +1,6 @@
 {
     "name": "ts-help",
-    "version": "0.0.2",
+    "version": "0.0.1",
     "description": "Typescript cheat sheet",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
@@ -37,6 +37,7 @@
         "prepack": "yarn build",
         "prepublishOnly": "yarn test && yarn lint",
         "preversion": "yarn lint",
+        "postversion": "git push --tags",
         "patch": "yarn version --patch",
         "minor": "yarn version --minor",
         "major": "yarn version --major"

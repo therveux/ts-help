@@ -1,4 +1,4 @@
-import { Maybe, Nothing, Some } from './MaybeHelpers';
+import { Maybe, Nothing, Some } from '../MaybeHelpers';
 //import { NonEmptyArray, NonEmptyArrayHelpers } from './NonEmptyArrayHelpers';
 
 export enum SORT_TYPE {

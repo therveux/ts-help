@@ -1,4 +1,4 @@
-import { Maybe, Nothing, Some } from './MaybeHelpers';
+import { Maybe, Nothing, Some } from '../MaybeHelpers';
 
 const getValue = <U>(obj: Record<string | number, U>, key: string | number): Maybe<U> => {
     const valueExists = obj[key];

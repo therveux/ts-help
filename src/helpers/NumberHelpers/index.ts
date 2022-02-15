@@ -1,4 +1,4 @@
-import { Maybe, Nothing, Some } from './MaybeHelpers';
+import { Maybe, Nothing, Some } from '../MaybeHelpers';
 
 const parseFloatMaybe = (stringValue: string): Maybe<number> => {
     const parsedFloat = parseFloat(stringValue.replace(',', '.'));

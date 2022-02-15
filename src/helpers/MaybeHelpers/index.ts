@@ -1,20 +1,24 @@
-export type Maybe<T> = SomeClass<T> | NothingClass;
+export type Maybe<T> = SomeType<T> | NothingType;
 
-class SomeClass<T> {
+type SomeType<T> = {
     value: T;
-    readonly isSome: true = true;
-    constructor(value: T) {
-        this.value = value;
-    }
-}
+    isSome: true;
+};
 
-export const Some = <T>(value: T): Maybe<T> => new SomeClass(value);
+export const Some = <T>(value: T): SomeType<T> => {
+    return {
+        value,
+        isSome: true
+    };
+};
 
-class NothingClass {
-    readonly isSome: false = false;
-}
+type NothingType = {
+    isSome: false;
+};
 
-export const Nothing = new NothingClass();
+export const Nothing: NothingType = {
+    isSome: false
+};
 
 const maybeMap = <T, U>(maybe: Maybe<T>, fn: (value: T) => U): Maybe<U> => {
     if (maybe.isSome) {

@@ -5,6 +5,12 @@ ts-help is a Typescript library to handle and group together helpers and coding 
 ## Contents
 
 - [Installation](#installation)
+- [Extra types](#extra-types)
+- [Usage](#usage)
+- [Features list](#features-list)
+- [Primitive types](#primitive-types)
+- [Algebraic data types](#algebraic-data-types)
+- [Compiler helper](#compiler-helper)
 - [Contributors](#contributors)
 
 ## Installation
@@ -23,7 +29,7 @@ Some custom types have been added to the library. You can add them to your `tsco
 
 ```json
 {
-  ...
+  //...
   "typeRoots": ["./node_modules/@types", "./node_modules/ts-help/@types"]
 }
 ```
@@ -40,6 +46,23 @@ const myArray = [1,2,3]
 console.log(ArrayHelpers.isEmpty(myArray)) // false
 
 ```
+
+## Features list
+
+### Primitive types
+
+- [ArrayHelpers](https://github.com/Hurobaki/ts-help/tree/develop/src/helpers/ArrayHelpers)
+- [NumberHelpers](https://github.com/Hurobaki/ts-help/tree/develop/src/helpers/NumberHelpers)
+- [ObjectHelpers](https://github.com/Hurobaki/ts-help/tree/develop/src/helpers/ObjectHelpers)
+- [StringHelpers](https://github.com/Hurobaki/ts-help/tree/develop/src/helpers/StringHelpers)
+
+### Algebraic data types
+
+- [MaybeHelpers](https://github.com/Hurobaki/ts-help/tree/develop/src/helpers/MaybeHelpers)
+
+### Compiler helper
+
+- [CompilerWarnerHelpers](https://github.com/Hurobaki/ts-help/tree/develop/src/helpers/CompilerWarnerHelpers)
 
 ## Contributors
 

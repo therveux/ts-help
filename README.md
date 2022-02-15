@@ -8,9 +8,9 @@ ts-help is a Typescript library to handle and group together helpers and coding 
 - [Extra types](#extra-types)
 - [Usage](#usage)
 - [Features list](#features-list)
-- [Primitive types](#primitive-types)
-- [Algebraic data types](#algebraic-data-types)
-- [Compiler helper](#compiler-helper)
+    - [Primitive types](#primitive-types)
+    - [Algebraic data types](#algebraic-data-types)
+    - [Compiler helper](#compiler-helper)
 - [Contributors](#contributors)
 
 ## Installation

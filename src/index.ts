@@ -21,3 +21,4 @@ export { PositiveInteger } from './@types/PositiveInteger';
 export { PositiveNonNullInteger } from './@types/PositiveNonNullInteger';
 export { PositiveNonNullNumber } from './@types/PositiveNonNullNumber';
 export { PositiveNumber } from './@types/PositiveNumber';
+export { Tuple } from './@types/Tuple';

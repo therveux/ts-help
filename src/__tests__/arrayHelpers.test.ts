@@ -1,6 +1,7 @@
 import { ArrayHelpers, SORT_TYPE } from '../helpers/ArrayHelpers';
 import { Maybe, MaybeHelpers, Nothing, Some } from '../helpers/MaybeHelpers';
 import { NonEmptyArray } from '../@types/NonEmptyArray';
+import { NumberHelpers } from '../helpers/NumberHelpers';
 // import { NumberHelpers } from '../helpers/NumberHelpers';
 
 /* ############### Exploitable data ############### */
@@ -234,21 +235,21 @@ const expectedTest27 = false;
 
 /* ############### Test 28 ############### */
 
-// const inputTest28 = ['5', '3', 'badNumber', '4'];
-//
-// const expectedTest28: NonEmptyArray<number> = [5, 3, 4];
-//
-// /* ############### Test 29 ############### */
-//
-// const inputTest29 = ['whatever', 'veryBad', 'badNumber', 'hystericalDate'];
-//
-// const expectedTest29: Maybe<NonEmptyArray<number>> = Nothing;
-//
-// /* ############### Test 30 ############### */
-//
-// const inputTest30: string[] = [];
-//
-// const expectedTest30: Maybe<NonEmptyArray<number>> = Nothing;
+const inputTest28 = ['5', '3', 'badNumber', '4'];
+
+const expectedTest28: Maybe<NonEmptyArray<number>> = Some([5, 3, 4]);
+
+/* ############### Test 29 ############### */
+
+const inputTest29 = ['whatever', 'veryBad', 'badNumber', 'hystericalDate'];
+
+const expectedTest29: Maybe<NonEmptyArray<number>> = Nothing;
+
+/* ############### Test 30 ############### */
+
+const inputTest30: string[] = [];
+
+const expectedTest30: Maybe<NonEmptyArray<number>> = Nothing;
 
 /* ############### Test 31 ############### */
 
@@ -400,20 +401,20 @@ describe('ArrayHelpers', () => {
         });
     });
 
-    // describe('filterMap', () => {
-    //     it('should return Nothing when given an empty array - Test 30', () => {
-    //         const result = ArrayHelpers.filterMap(inputTest30, NumberHelpers.parseIntMaybe);
-    //         expect(result).toEqual(expectedTest30);
-    //     });
-    //     it('should return an array of numbers when given an array of strings and a parseInt as predicate - Test 28', () => {
-    //         const result = ArrayHelpers.filterMap(inputTest28, NumberHelpers.parseIntMaybe);
-    //         expect(result).toEqual(expectedTest28);
-    //     });
-    //     it('should return an empty array when given an array of non number strings and a parseInt as predicate - Test 29', () => {
-    //         const result = ArrayHelpers.filterMap(inputTest29, NumberHelpers.parseIntMaybe);
-    //         expect(result).toEqual(expectedTest29);
-    //     });
-    // });
+    describe('filterMap', () => {
+        it('should return Nothing when given an empty array - Test 30', () => {
+            const result = ArrayHelpers.filterMap(inputTest30, NumberHelpers.parseIntMaybe);
+            expect(result).toEqual(expectedTest30);
+        });
+        it('should return an array of numbers when given an array of strings and a parseInt as predicate - Test 28', () => {
+            const result = ArrayHelpers.filterMap(inputTest28, NumberHelpers.parseIntMaybe);
+            expect(result).toEqual(expectedTest28);
+        });
+        it('should return an empty array when given an array of non number strings and a parseInt as predicate - Test 29', () => {
+            const result = ArrayHelpers.filterMap(inputTest29, NumberHelpers.parseIntMaybe);
+            expect(result).toEqual(expectedTest29);
+        });
+    });
 
     describe('filter', () => {
         it('should return Nothing when given an empty array - Test 31', () => {

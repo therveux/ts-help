@@ -64,10 +64,6 @@ const isNonEmptyArray = <T>(array: T[]): array is NonEmptyArray<T> => {
     return !isEmpty(array);
 };
 
-// const buildNonEmptyArray = <T>(firstElement: T, othersElements: T[]): NonEmptyArray<T> => {
-//     return [firstElement, ...othersElements];
-// };
-
 const filter = <T>(array: T[], predicate: (item: T) => boolean): Maybe<NonEmptyArray<T>> => {
     const filteredArray = array.filter(predicate);
 
@@ -78,19 +74,19 @@ const filter = <T>(array: T[], predicate: (item: T) => boolean): Maybe<NonEmptyA
     }
 };
 
-// const filterMap = <T, U>(array: T[], predicate: (item: T) => Maybe<U>): Maybe<NonEmptyArray<U>> =>
-//     array.reduce<Maybe<NonEmptyArray<U>>>((acc, curr) => {
-//         const maybeMappedItem = predicate(curr);
-//         return acc.isSome
-//             ? Some(maybeMappedItem.isSome ? acc.value.push(maybeMappedItem.value) : acc.value)
-//             : maybeMappedItem.isSome
-//             ? Some(buildNonEmptyArray(maybeMappedItem.value, []))
-//             : Nothing;
-//     }, Nothing);
+const filterMap = <T, U>(array: T[], predicate: (item: T) => Maybe<U>): Maybe<NonEmptyArray<U>> =>
+    array.reduce<Maybe<NonEmptyArray<U>>>((acc, curr) => {
+        const maybeMappedItem = predicate(curr);
+        return acc.isSome
+            ? Some(maybeMappedItem.isSome ? [...acc.value, maybeMappedItem.value] : acc.value)
+            : maybeMappedItem.isSome
+            ? Some([maybeMappedItem.value])
+            : Nothing;
+    }, Nothing);
 
 export const ArrayHelpers = {
     filter,
-    // filterMap,
+    filterMap,
     isNonEmptyArray,
     isEmpty,
     find,

@@ -56,19 +56,19 @@ console.log(ArrayHelpers.isEmpty(myArray)) // false
 
 ### Custom types
 
-- [NegativeInteger](https://github.com/Hurobaki/ts-help/tree/develop/src/@types/NegativeInteger)
-- [NegativeNonNullInteger](https://github.com/Hurobaki/ts-help/tree/develop/src/@types/NegativeNonNullInteger)
-- [NegativeNonNullNumber](https://github.com/Hurobaki/ts-help/tree/develop/src/@types/NegativeNonNullNumber)
-- [NegativeNumber](https://github.com/Hurobaki/ts-help/tree/develop/src/@types/NegativeNumber)
-- [NonEmptyArray](https://github.com/Hurobaki/ts-help/tree/develop/src/@types/NonEmptyArray)
-- [NonNullInteger](https://github.com/Hurobaki/ts-help/tree/develop/src/@types/NonNullInteger)
-- [NonNullNumber](https://github.com/Hurobaki/ts-help/tree/develop/src/@types/NonNullNumber)
-- [Nullable](https://github.com/Hurobaki/ts-help/tree/develop/src/@types/Nullable)
-- [Optional](https://github.com/Hurobaki/ts-help/tree/develop/src/@types/Optional)
-- [PositiveInteger](https://github.com/Hurobaki/ts-help/tree/develop/src/@types/PositiveInteger)
-- [PositiveNonNullInteger](https://github.com/Hurobaki/ts-help/tree/develop/src/@types/PositiveNonNullInteger)
-- [PositiveNonNullNumber](https://github.com/Hurobaki/ts-help/tree/develop/src/@types/PositiveNonNullNumber)
-- [PositiveNumber](https://github.com/Hurobaki/ts-help/tree/develop/src/@types/PositiveNumber)
+- [NegativeInteger](https://github.com/Hurobaki/ts-help/tree/develop/src/@types)
+- [NegativeNonNullInteger](https://github.com/Hurobaki/ts-help/tree/develop/src/@types)
+- [NegativeNonNullNumber](https://github.com/Hurobaki/ts-help/tree/develop/src/@types)
+- [NegativeNumber](https://github.com/Hurobaki/ts-help/tree/develop/src/@types)
+- [NonEmptyArray](https://github.com/Hurobaki/ts-help/tree/develop/src/@types)
+- [NonNullInteger](https://github.com/Hurobaki/ts-help/tree/develop/src/@types)
+- [NonNullNumber](https://github.com/Hurobaki/ts-help/tree/develop/src/@types)
+- [Nullable](https://github.com/Hurobaki/ts-help/tree/develop/src/@types)
+- [Optional](https://github.com/Hurobaki/ts-help/tree/develop/src/@types)
+- [PositiveInteger](https://github.com/Hurobaki/ts-help/tree/develop/src/@types)
+- [PositiveNonNullInteger](https://github.com/Hurobaki/ts-help/tree/develop/src/@types)
+- [PositiveNonNullNumber](https://github.com/Hurobaki/ts-help/tree/develop/src/@types)
+- [PositiveNumber](https://github.com/Hurobaki/ts-help/tree/develop/src/@types)
 
 ## Contributors
 

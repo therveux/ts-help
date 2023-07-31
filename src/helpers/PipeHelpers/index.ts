@@ -43,16 +43,37 @@ const pipedFunction = <T, P extends Array<unknown>, U>(
     return (prop: T) => fn(prop, ...props);
 };
 
-const pipedMaybeMap = <T, U>(fn: (val: T) => U) => {
+const pipedMaybeMap = <T, U>(fn: (val: T) => U): ((_: Maybe<T>) => Maybe<U>) => {
     return pipedFunction<Maybe<T>, [(val: T) => U], Maybe<U>>(MaybeHelpers.maybeMap, fn);
+};
+
+const pipedMaybeMapAsync = <T, U>(fn: (val: T) => Promise<U>): ((_: Maybe<T>) => Promise<Maybe<U>>) => {
+    return pipedFunction<Maybe<T>, [(val: T) => Promise<U>], Promise<Maybe<U>>>(MaybeHelpers.maybeMapAsync, fn);
+};
+
+const pipedMaybeAndThen = <T, U>(fn: (val: T) => Maybe<U>): ((_: Maybe<T>) => Maybe<U>) => {
+    return pipedFunction<Maybe<T>, [(val: T) => Maybe<U>], Maybe<U>>(MaybeHelpers.andThen, fn);
+};
+
+const pipedMaybeAndThenAsync = <T, U>(fn: (val: T) => Promise<Maybe<U>>): ((_: Maybe<T>) => Promise<Maybe<U>>) => {
+    return pipedFunction<Maybe<T>, [(val: T) => Promise<Maybe<U>>], Promise<Maybe<U>>>(MaybeHelpers.andThenAsync, fn);
+};
+
+const pipedMaybeWithDefault = <T>(defaultValue: T | (() => T)): ((_: Maybe<T>) => T) => {
+    return pipedFunction<Maybe<T>, [T | (() => T)], T>(MaybeHelpers.withDefault, defaultValue);
+};
+
+const pipedMaybeFromPossiblyUndefined = <T>(): ((_: T | undefined) => Maybe<T>) => {
+    return pipedFunction<T | undefined, [], Maybe<T>>(MaybeHelpers.fromPossiblyUndefined);
 };
 
 // const numbers: number[] = [1, 2, 3, 4, 5];
 //
-// const test = pipe2(
+// const test : NonEmptyArray<string> = pipe3(
 //     ArrayHelpers.filter(numbers, number => number % 2 === 0),
 //     pipedMaybeMap(numbers => numbers.map(number => number.toString())),
-//     pipedFunction(MaybeHelpers.withDefault, [])
+//     pipedMaybeAndThen(stringNumbers => ArrayHelpers.filter(stringNumbers, stringNumber => stringNumber !== '3')),
+//     pipedMaybeWithDefault<NonEmptyArray<string>>( ['defaultValue'])
 // );
 
 export const PipeHelpers = {
@@ -63,5 +84,10 @@ export const PipeHelpers = {
     pipe5,
     pipe6,
     pipedFunction,
-    pipedMaybeMap
+    pipedMaybeMap,
+    pipedMaybeMapAsync,
+    pipedMaybeAndThen,
+    pipedMaybeAndThenAsync,
+    pipedMaybeWithDefault,
+    pipedMaybeFromPossiblyUndefined
 };

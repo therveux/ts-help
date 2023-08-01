@@ -1,4 +1,5 @@
 import { Maybe, MaybeHelpers } from '../MaybeHelpers';
+import { Result, ResultHelpers } from '../ResultHelpers';
 
 type BasePipeParams<T, U> = [T, (firstParams: T) => U];
 
@@ -76,6 +77,29 @@ const pipedMaybeFromPossiblyUndefined = <T>(): ((_: T | undefined) => Maybe<T>) 
 //     pipedMaybeWithDefault<NonEmptyArray<string>>( ['defaultValue'])
 // );
 
+const pipedResultMap = <T, U>(fn: (val: T) => U): ((_: Result<T>) => Result<U>) => {
+    return pipedFunction<Result<T>, [(val: T) => U], Result<U>>(ResultHelpers.resultMap, fn);
+};
+
+const pipedResultMapAsync = <T, U>(fn: (val: T) => Promise<U>): ((_: Result<T>) => Promise<Result<U>>) => {
+    return pipedFunction<Result<T>, [(val: T) => Promise<U>], Promise<Result<U>>>(ResultHelpers.resultMapAsync, fn);
+};
+
+const pipedResultWithDefault = <T>(defaultValue: T | (() => T)): ((_: Result<T>) => T) => {
+    return pipedFunction<Result<T>, [T | (() => T)], T>(ResultHelpers.withDefault, defaultValue);
+};
+
+const pipedResultAndThen = <T, U>(fn: (val: T) => Result<U>): ((_: Result<T>) => Result<U>) => {
+    return pipedFunction<Result<T>, [(val: T) => Result<U>], Result<U>>(ResultHelpers.andThen, fn);
+};
+
+const pipedResultAndThenAsync = <T, U>(fn: (val: T) => Promise<Result<U>>): ((_: Result<T>) => Promise<Result<U>>) => {
+    return pipedFunction<Result<T>, [(val: T) => Promise<Result<U>>], Promise<Result<U>>>(
+        ResultHelpers.andThenAsync,
+        fn
+    );
+};
+
 export const PipeHelpers = {
     pipe,
     pipe2,
@@ -89,5 +113,10 @@ export const PipeHelpers = {
     pipedMaybeAndThen,
     pipedMaybeAndThenAsync,
     pipedMaybeWithDefault,
-    pipedMaybeFromPossiblyUndefined
+    pipedMaybeFromPossiblyUndefined,
+    pipedResultMap,
+    pipedResultMapAsync,
+    pipedResultWithDefault,
+    pipedResultAndThen,
+    pipedResultAndThenAsync
 };

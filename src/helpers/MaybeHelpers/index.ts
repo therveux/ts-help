@@ -5,6 +5,11 @@ type SomeType<T> = {
     isSome: true;
 };
 
+/**
+ * Wrap a value in a Some type
+ * @param value the value to wrap in a Some type
+ * @returns {SomeType<T>} a Some type containing the value
+ */
 export const Some = <T>(value: T): SomeType<T> => {
     return {
         value,
@@ -16,10 +21,20 @@ type NothingType = {
     isSome: false;
 };
 
+/**
+ * Get a Nothing type
+ * @returns {NothingType} a Nothing type
+ */
 export const Nothing: NothingType = {
     isSome: false
 };
 
+/**
+ * Map a value inside a Maybe, if it's a SomeType
+ * @param maybe the Maybe to map
+ * @param fn the function to apply to the value inside the SomeType
+ * @returns {Maybe<U>} if the Maybe is a SomeType, returns a SomeType containing the result of the function, otherwise returns a Nothing type
+ */
 const maybeMap = <T, U>(maybe: Maybe<T>, fn: (value: T) => U): Maybe<U> => {
     if (maybe.isSome) {
         return Some(fn(maybe.value));
@@ -28,6 +43,12 @@ const maybeMap = <T, U>(maybe: Maybe<T>, fn: (value: T) => U): Maybe<U> => {
     }
 };
 
+/**
+ * Map a value inside a Maybe, if it's a SomeType
+ * @param maybe the Maybe to map
+ * @param fn the asynchronous function to apply to the value inside the SomeType
+ * @returns {Promise<Maybe<U>>} if the Maybe is a SomeType, returns a Promise of a SomeType containing the result of the function, otherwise returns a Promise of a Nothing type
+ */
 const maybeMapAsync = async <T, U>(maybe: Maybe<T>, fn: (value: T) => Promise<U>): Promise<Maybe<U>> => {
     if (maybe.isSome) {
         const result = await fn(maybe.value);
@@ -37,6 +58,12 @@ const maybeMapAsync = async <T, U>(maybe: Maybe<T>, fn: (value: T) => Promise<U>
     }
 };
 
+/**
+ * Get the value inside a Maybe, or a default value if the Maybe is a Nothing type
+ * @param maybe the Maybe to get the value from
+ * @param defaultValue the default value to return if the Maybe is a Nothing type
+ * @returns {T} the value inside the Maybe, or the default value if the Maybe is a Nothing type
+ */
 const withDefault = <T>(maybe: Maybe<T>, defaultValue: T | (() => T)): T => {
     if (maybe.isSome) {
         return maybe.value;
